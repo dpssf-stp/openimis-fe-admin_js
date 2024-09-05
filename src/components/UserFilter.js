@@ -230,19 +230,6 @@ class UserFilter extends Component {
         <Grid container>
           <ControlledField
             module="admin"
-            id="userFilter.userTypes"
-            field={
-              <Grid item xs={3} className={classes.item}>
-                <PublishedComponent
-                  pubRef="admin.UserTypesPicker"
-                  value={this.filterValue("userTypes")}
-                  onChange={(v) => this.onChangeUserTypes(v)}
-                />
-              </Grid>
-            }
-          />
-          <ControlledField
-            module="admin"
             id="userFilter.userRoles"
             field={
               <Grid item xs={3} className={classes.item}>
@@ -254,43 +241,6 @@ class UserFilter extends Component {
               </Grid>
             }
           />
-          { rights.includes(RIGHT_HEALTHFACILITIES) && (<ControlledField
-              module="admin"
-              id="userFilter.healthFacility"
-              field={
-                <Grid item xs={3} className={classes.item}>
-                  <PublishedComponent
-                    pubRef="location.HealthFacilityPicker"
-                    withNull={true}
-                    value={this.filterValue("healthFacilityId") || ""}
-                    district={selectedDistrict}
-                    onChange={(v) => {
-                      onChangeFilters([
-                        {
-                          id: "healthFacility",
-                          value: v,
-                          filter: v ? `healthFacilityId: ${decodeId(v.id)}` : null,
-                        },
-                      ]);
-                    }}
-                  />
-                </Grid>
-              }
-            />
-          )}
-        </Grid>
-        <Grid container>
-          <Grid item xs={12}>
-            <PublishedComponent
-              pubRef="location.DetailedLocationFilter"
-              withNull={true}
-              filters={filters}
-              onChangeFilters={this.onChangeLocation}
-              anchor="parentLocation"
-            />
-          </Grid>
-        </Grid>
-        <Grid container>
           <ControlledField
             module="admin"
             id="userFilter.username"
@@ -348,8 +298,6 @@ class UserFilter extends Component {
               </Grid>
             }
           />
-        </Grid>
-        <Grid container>
           <ControlledField
             module="admin"
             id="userFilter.Phone"

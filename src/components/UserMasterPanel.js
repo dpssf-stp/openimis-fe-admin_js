@@ -263,33 +263,6 @@ const UserMasterPanel = (props) => {
           onChange={(roles) => onEditedChanged({ ...edited, roles })}
         />
       </Grid>
-      <Grid item xs={2} className={classes.item}>
-        <PublishedComponent
-          pubRef="location.LocationPicker"
-          locationLevel={0}
-          value={edited.region}
-          onChange={(region) => onEditedChanged({ ...edited, region })}
-          readOnly={readOnly}
-          multiple
-          withLabel
-          label={formatMessage("user.regions")}
-          restrictedOptions
-        />
-      </Grid>
-      <Grid item xs={4} className={classes.item}>
-        <PublishedComponent
-          pubRef="location.LocationPicker"
-          locationLevel={1}
-          value={edited?.districts ?? []}
-          onChange={(districts) => onEditedChanged({ ...edited, districts })}
-          readOnly={readOnly}
-          required
-          multiple
-          withLabel
-          label={formatMessage("user.districts")}
-          restrictedOptions
-        />
-      </Grid>
 
       <Grid item xs={12} className={classes.sectionHeader}>
         <Typography className={classes.sectionTitle}>{formatMessage("UserMasterPanel.loginDetailsTitle")}</Typography>
